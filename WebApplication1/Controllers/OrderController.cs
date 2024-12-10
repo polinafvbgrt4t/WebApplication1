@@ -12,7 +12,7 @@ namespace WebApplication1.Controllers
         public int CustomerId { get; set; }
         public DateTime OrderDate { get; set; }
         public bool StatusOrder { get; set; }
-        public virtual Customer Customer { get; set; } = null!;
+        
     }
 
     [Route("api/[controller]")]
