@@ -12,8 +12,7 @@ namespace WebApplication1.Controllers
         public int GenreId { get; set; }
         public decimal Price { get; set; }
         public int StockQuantity { get; set; }
-        public virtual Album Album { get; set; } = null!;
-        public virtual Genre Genre { get; set; } = null!;
+      
     }
 
     [Route("api/[controller]")]
@@ -65,8 +64,7 @@ namespace WebApplication1.Controllers
                 GenreId = disc.GenreId,
                 Price = disc.Price,
                 StockQuantity = disc.StockQuantity,
-                Album = disc.Album, 
-                Genre = disc.Genre,
+              
 
             };
 
@@ -95,8 +93,7 @@ namespace WebApplication1.Controllers
                 GenreId = disc.GenreId,
                 Price = disc.Price,
                 StockQuantity = disc.StockQuantity,
-                Album = disc.Album,
-                Genre = disc.Genre,
+              
 
             };
 
