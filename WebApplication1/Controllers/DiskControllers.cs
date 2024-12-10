@@ -93,8 +93,7 @@ namespace WebApplication1.Controllers
                 GenreId = disc.GenreId,
                 Price = disc.Price,
                 StockQuantity = disc.StockQuantity,
-                Album = disc.Album,
-                Genre = disc.Genre,
+               
 
             };
 
