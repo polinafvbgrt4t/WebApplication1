@@ -12,11 +12,7 @@ namespace WebApplication1.Controllers
         public int GenreId { get; set; }
         public decimal Price { get; set; }
         public int StockQuantity { get; set; }
-<<<<<<< HEAD
-      
-=======
-        
->>>>>>> 1605943eee38a642af0d5c3e744d2dca72d2bdc3
+
     }
 
     [Route("api/[controller]")]
@@ -68,11 +64,7 @@ namespace WebApplication1.Controllers
                 GenreId = disc.GenreId,
                 Price = disc.Price,
                 StockQuantity = disc.StockQuantity,
-<<<<<<< HEAD
-              
-=======
-             
->>>>>>> 1605943eee38a642af0d5c3e744d2dca72d2bdc3
+
 
             };
 
@@ -101,11 +93,7 @@ namespace WebApplication1.Controllers
                 GenreId = disc.GenreId,
                 Price = disc.Price,
                 StockQuantity = disc.StockQuantity,
-<<<<<<< HEAD
-              
-=======
-               
->>>>>>> 1605943eee38a642af0d5c3e744d2dca72d2bdc3
+
 
             };
 
