@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 version: '3.4'
 
 services:
@@ -20,4 +21,28 @@ services:
     environment: 
       - "SA_PASSWORD=Your_password123"
       - "ACCEPT_EULA=Y"
+=======
+version: '3.4'
+
+services:
+  webapi:
+    image: ${DOCKER_REGISTRY-}webapplication1
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      - ASPNETCORE_URLS=http://+:80
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionString=Server=db;Database=db_larionov;User=sa;Password=Your_password123;MultipleActiveResultSets=True;Encrypt=False
+    ports:
+      - "5000:80"
+    depends_on:
+      - db
+
+  db:
+    image: "mcr.microsoft.com/mssql/server"
+    environment: 
+      - "SA_PASSWORD=Your_password123"
+      - "ACCEPT_EULA=Y"
+>>>>>>> 1605943eee38a642af0d5c3e744d2dca72d2bdc3
     container_name: mssql 
