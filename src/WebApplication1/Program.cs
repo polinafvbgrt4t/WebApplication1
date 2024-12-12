@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Models;
+using static System.Net.WebRequestMethods;
 
 namespace WebApplication1
 {
@@ -31,9 +32,11 @@ namespace WebApplication1
                 if (app.Environment.IsDevelopment())
                 {
                     app.UseSwagger();
-                    app.UseSwaggerUI();
-                }
-
+                app.UseSwaggerUI();
+            }
+            app.UseCors(builder => builder.WithOrigins(new[] { " https://localhost:7168 ", })
+            .AllowAnyHeader()
+            .AllowAnyMethod());
             app.UseHttpsRedirection();
 
             app.UseAuthorization();

@@ -1,0 +1,53 @@
+﻿@page "/"
+
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+<p>Текущая дата:@CurrentDate</p>
+<p>Текущее время:@CurrentTime</p>
+
+
+@foreach (var customer in result)
+{
+    <p>@customer.NameSurname @customer.Email</p>
+
+}
+
+
+@code {
+   
+
+
+        public class Customer
+        {
+
+            public int CustomerId { get; set; }
+            public string NameSurname { get; set; } = null!;
+            public string Email { get; set; }
+            public string AddressCustomer { get; set; } = null!;
+        }
+    public Customer[] result = new Customer[] { };
+
+    string @CurrentDate;
+    string @CurrentTime;
+
+    protected override async Task OnInitializedAsync()
+    {
+
+       var date = DateTime.Now;
+       CurrentDate = date.ToShortDateString();
+       CurrentTime = date.ToShortTimeString();
+
+
+        var client = new HttpClient();
+        client.BaseAddress = new Uri("https://webapplication1-14.onrender.com/api/Customers");
+        result = await client.GetFromJsonAsync<Customer[]>("api/Customers");
+
+        return;
+
+        
+    }
+
+
+
+}
