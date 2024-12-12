@@ -58,7 +58,7 @@
         var client = new HttpClient();
         client.BaseAddress = new Uri("https://webapplication1-14.onrender.com/");
 
-        result = await client.GetFromJsonAsync<Customer[]>("api/Customer");
+        result = await client.GetFromJsonAsync<Customer[]>("api/Customers");
 
         return;
     }
