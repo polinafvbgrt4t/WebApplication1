@@ -33,7 +33,9 @@ namespace WebApplication1
                 {
                     app.UseSwagger();
                 app.UseSwaggerUI();
-            }
+                }
+
+
             app.UseCors(builder => builder.WithOrigins(new[] { " https://localhost:7168 ", })
             .AllowAnyHeader()
             .AllowAnyMethod());

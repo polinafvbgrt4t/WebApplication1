@@ -1,53 +1,50 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
+<PageTitle>Customers</PageTitle>
 
 <h1>Hello, world!</h1>
-<p>Текущая дата:@CurrentDate</p>
-<p>Текущее время:@CurrentTime</p>
+<p>Текущая дата: @CurrentDate</p>
+<p>Текущее время: @CurrentTime</p>
 
-
-@foreach (var customer in result)
+@if (result != null && result.Length > 0)
 {
-    <p>@customer.NameSurname @customer.Email</p>
-
+    foreach (var customer in result)
+    {
+        <p>@customer.NameSurname @customer.Email</p>
+    }
+}
+else
+{
+    <p>Нет доступных клиентов.</p>
 }
 
-
 @code {
-   
+    public class Customer
+    {
+        public int CustomerId { get; set; }
+        public string NameSurname { get; set; } = string.Empty; // Изменено на empty
+        public string Email { get; set; } = string.Empty; // Изменено на empty
+        public string AddressCustomer { get; set; } = string.Empty; // Изменено на empty
+    }
 
+    public Customer[] result = Array.Empty<Customer>();
 
-        public class Customer
-        {
-
-            public int CustomerId { get; set; }
-            public string NameSurname { get; set; } = null!;
-            public string Email { get; set; }
-            public string AddressCustomer { get; set; } = null!;
-        }
-    public Customer[] result = new Customer[] { };
-
-    string @CurrentDate;
-    string @CurrentTime;
+    string CurrentDate;
+    string CurrentTime;
 
     protected override async Task OnInitializedAsync()
     {
-
-       var date = DateTime.Now;
-       CurrentDate = date.ToShortDateString();
-       CurrentTime = date.ToShortTimeString();
-
-
-        var client = new HttpClient();
-        client.BaseAddress = new Uri("https://webapplication1-14.onrender.com/api/Customers");
-        result = await client.GetFromJsonAsync<Customer[]>("api/Customers");
-
-        return;
+        var date = DateTime.Now;
+        CurrentDate = date.ToShortDateString();
+        CurrentTime = date.ToShortTimeString();
 
         
+            var client = new HttpClient
+                {
+                    BaseAddress = new Uri("https://webapplication1-14.onrender.com/")
+                };
+            result = await client.GetFromJsonAsync<Customer[]>("api/Customers");
+     
+      
     }
-
-
-
 }
