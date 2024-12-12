@@ -36,7 +36,7 @@ namespace WebApplication1
                 }
 
 
-            app.UseCors(builder => builder.WithOrigins(new[] { " https://localhost:7168 ", "https://webapplication1-14.onrender.com" })
+            app.UseCors(builder => builder.WithOrigins(new[] { " https://localhost:7168 ", "https://webapplication1-14.onrender.com", "https://webapplication1-14.onrender.com/api/Customers" })
             .AllowAnyHeader()
             .AllowAnyMethod());
 
