@@ -39,6 +39,7 @@ namespace WebApplication1
             app.UseCors(builder => builder.WithOrigins(new[] { " https://localhost:7168 ", })
             .AllowAnyHeader()
             .AllowAnyMethod());
+
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
