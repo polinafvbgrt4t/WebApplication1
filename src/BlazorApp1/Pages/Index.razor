@@ -1,8 +1,8 @@
-﻿@page "/Customers"
-
+﻿@page "/"
+<PageTitle>Главная</PageTitle>
 <nav class="py-3 navbar navbar-expand-lg fixed-top auto-hiding-navbar navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand" href="#">Название</a>
+        <a class="navbar-brand" href="#">Music Store</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -12,10 +12,13 @@
                     <a class="nav-link active" aria-current="page" href="#">Главная</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Мои проекты</a>
+                    <a class="nav-link" href="#">Пластинки</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Контакты</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">О нас</a>
                 </li>
             </ul>
         </div>
@@ -26,121 +29,90 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1>Привет,<br>базист!</h1>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet soluta veniam voluptate aliquam deleniti labore quod quis illum, sapiente nam nesciunt magni voluptatibus voluptatem incidunt placeat consequuntur quaerat voluptatum expedita!</p>
-                <button type="button" class="btn btn-dark btn-lg">Начать!</button>
+                <h1>Привет,<br>друг музыки!</h1>
+                <p>Откройте для себя мир музыкальных пластинок! У нас есть всё, что необходимо для истинных ценителей музыки.</p>
+                <button type="button" class="btn btn-dark btn-lg">Начать покупки!</button>
             </div>
             <div class="col">
-                <img src="https://repository-images.githubusercontent.com/190767422/73354680-8949-11e9-8dc9-b5749b98dd26" alt="...">
+                <img src="https://i.ytimg.com/vi/YMEt6JOSmm8/maxresdefault.jpg" alt="Музыка" />
             </div>
         </div>
-        <div class="row cards">
-            <div class="col-md-4 d-flex justify-content-center">
-                <div class="card">
-                    <div class="card-body">
-                        <!-- here is where they add the ICON -->
-                        <img src="https://repository-images.githubusercontent.com/190767422/73354680-8949-11e9-8dc9-b5749b98dd26" alt="..." class="icon">
-                        <h5 class="card-title">SQL Server</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <div class="container mt-5">
+            <div class="row cards">
+                <div class="col-md-4 d-flex justify-content-center">
+                    <div class="icon" style="width: 18rem;">
+                        <div class="card-body text-center">
+                            <img src="https://avatars.mds.yandex.net/i?id=03aded4e6cc85d84668e56e2ecfd7d8d5af42363-8191765-images-thumbs&n=13" alt="Иконка рок" class="icon img-fluid">
+                            <h5 class="card-title">Рок</h5>
+                            <p class="card-text">Пластинки, которые заставляют ваше сердце биться чаще!</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 d-flex justify-content-center">
-                <div class="card">
-                    <div class="card-body">
-                        <!-- here is where they add the ICON -->
-                        <img src="https://repository-images.githubusercontent.com/190767422/73354680-8949-11e9-8dc9-b5749b98dd26" alt="..." class="icon">
-                        <h5 class="card-title">Web API</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <div class="col-md-4 d-flex justify-content-center">
+                    <div class="icon" style="width: 18rem;">
+                        <div class="card-body text-center">
+                            <img src="https://thumbs.dreamstime.com/b/cheering-crowd-3011289.jpg" alt="Иконка поп" class="icon img-fluid">
+                            <h5 class="card-title">Поп</h5>
+                            <p class="card-text">Самые горячие хиты в вашей коллекции!</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 d-flex justify-content-center">
-                <div class="card">
-                    <div class="card-body">
-                        <!-- here is where they add the ICON -->
-                        <img src="https://repository-images.githubusercontent.com/190767422/73354680-8949-11e9-8dc9-b5749b98dd26" alt="..." class="icon">
-                        <h5 class="card-title">Blazor WASM</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <div class="col-md-4 d-flex justify-content-center">
+                    <div class="icon" style="width: 18rem;">
+                        <div class="card-body text-center">
+                            <img src="https://avatars.mds.yandex.net/i?id=61fda467dde7952b8d28782a4dd910b6_l-4078058-images-thumbs&n=13" alt="Иконка джаз" class="icon img-fluid">
+                            <h5 class="card-title">Джаз</h5>
+                            <p class="card-text">Идеальная музыка для расслабления и наслаждения.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <style>
+        .icon {
+            width: 100%;
+            height: auto; /* Высота авто, что позволяет сохранять пропорции */
+            max-width: 250px; /* Максимальная ширина изображения */
+            border-radius: 10px; /* Скругление углов для более стильного вида */
+        }
+
+        .card {
+            margin-top: 20px; 
+            border: 1px solid #ddd; /* Граница карточки */
+            border-radius: 10px; /* Скругление углов карточки */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для карточки */
+        }
+    </style>
 </section>
+
 <section id="about-us">
     <div class="container">
         <div class="row align-items-center">
             <div class="col">
-                <!-- another image can be inserted here -->
-                <img src="https://repository-images.githubusercontent.com/190767422/73354680-8949-11e9-8dc9-b5749b98dd26" alt="..." class="img-fluid" />
+                <img src="https://avatars.mds.yandex.net/i?id=0c0fb7cc71c945931a9904f309c61f3f_l-8982254-images-thumbs&n=13" alt="Музыкальное оборудование" class="img-fluid" />
             </div>
             <div class="col">
-                <h1>Кратко о проекте</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia tenetur reiciendis in quae, rem corporis id sequi debitis aliquam laudantium illum vel unde? Praesentium laboriosam neque eaque architecto maxime nihil?</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia tenetur reiciendis in quae, rem corporis id sequi debitis aliquam laudantium illum vel unde? Praesentium laboriosam neque eaque architecto maxime nihil?</p>
-                <button type="button" class="btn btn-dark btn-lg">Подробнее</button>
+                <h1>Кратко о нашем магазине</h1>
+                <p>Мы — магазин, который предлагает вам только лучшие музыкальные пластинки, собранные со всего мира.</p>
+                <p>Наша миссия — приносить радость и вдохновение через музыку. Мы постоянно обновляем наш ассортимент, чтобы предоставить вам самые интересные и редкие пластинки.</p>
+                <button type="button" class="btn btn-dark btn-lg">Узнать больше</button>
             </div>
         </div>
     </div>
 </section>
+
 <section id="contact">
     <div class="container">
         <div class="row align-items-center projects">
             <div class="col">
-                <h1>Я люблю базы данных!</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem quod aliquam corporis tempore nostrum. Animi rem quisquam deleniti qui ad ipsa quod! Animi corrupti, ex blanditiis dolor error nulla consectetur.</p>
+                <h1>Контакты</h1>
+                <p>Свяжитесь с нами, если у вас есть вопросы или предложения относительно наших пластинок! Мы всегда готовы помочь вам.</p>
+                <p>Email: support@musicstore.com</p>
+                <p>Телефон: +1 (555) 010-1010</p>
             </div>
         </div>
     </div>
 </section>
-<PageTitle>Customers</PageTitle>
-
-<h1>Hello, world!</h1>
-<p>Текущая дата:@CurrentDate</p>
-<p>Текущее время:@CurrentTime</p>
 
 
-@foreach (var customer in result)
-{
-    <p>@customer.NameSurname @customer.Email</p>
-
-}
-
-@code {
-
-
-
-    public class Customer
-    {
-
-        public int CustomerId { get; set; }
-        public string NameSurname { get; set; } = null!;
-        public string Email { get; set; }
-        public string AddressCustomer { get; set; } = null!;
-    }
-    public Customer[] result = new Customer[] { };
-
-    string @CurrentDate;
-    string @CurrentTime;
-
-    protected override async Task OnInitializedAsync()
-    {
-
-        var date = DateTime.Now;
-        CurrentDate = date.ToShortDateString();
-        CurrentTime = date.ToShortTimeString();
-
-
-        var client = new HttpClient();
-        client.BaseAddress = new Uri("https://webapplication1-14.onrender.com/");
-        result = await client.GetFromJsonAsync<Customer[]>("api/Customers");
-
-        return;
-
-
-    }
-
-
-
-}

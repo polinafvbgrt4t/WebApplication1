@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console_API", "Console_API\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{0CC2FB20-00F7-4CFF-99F4-9A9952D04FE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp1", "BlazorApp1\BlazorApp1.csproj", "{8831BE89-2F1C-4A33-B1A5-8A5B028EC405}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp1", "BlazorApp1\BlazorApp1.csproj", "{8831BE89-2F1C-4A33-B1A5-8A5B028EC405}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

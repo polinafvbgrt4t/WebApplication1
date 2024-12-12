@@ -1,0 +1,65 @@
+﻿<h3>user</h3>
+@page "/Customers"
+
+<section id="">
+    <div class="container">
+        <p>Текущее время: @CurrentTime</p>
+        <p>Текущая дата: @CurrentDate</p>
+
+        <h1>Пользователи</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">CustomerId</th>
+                    <th scope="col">NameSurname</th>
+                    <th scope="col">AddressCustomer</th>
+
+                    <th scope="col">Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var customer in result)
+                {
+                    <tr>
+                        <th scope="row">@customer.CustomerId</th>
+                        <td>@customer.NameSurname</td>
+                        <td>@customer.AddressCustomer</td>
+
+                        <td>@customer.Email</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+@code {
+    public class Customer
+    {
+        public int CustomerId { get; set; }
+        public string NameSurname { get; set; } = null!;
+        public string Email { get; set; }
+        public string AddressCustomer { get; set; } = null!;
+    }
+
+    public Customer[] result = new Customer[] { };
+
+    string CurrentDate;
+    string CurrentTime;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var date = DateTime.Now;
+        CurrentDate = date.ToShortDateString();
+        CurrentTime = date.ToShortTimeString();
+
+        var client = new HttpClient();
+        client.BaseAddress = new Uri("https://webapplication1-14.onrender.com/");
+
+        result = await client.GetFromJsonAsync<Customer[]>("api/Customer");
+
+        return;
+    }
+}
