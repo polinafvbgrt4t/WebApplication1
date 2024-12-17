@@ -1,9 +1,8 @@
 ﻿using WebApplication1.DataAccess.Models.Accounts;
-using WebApplication1.Models.Accounts;
 
 namespace WebApplication1.Authorization
 {
-    public class IAccountService
+    public interface IAccountService
     {
         Task<AuthenticateResponse> Authenticate(AuthenticateRequest model, string ipAddress);
         Task<AuthenticateResponse> RefreshToken(string token, string ipAddress);

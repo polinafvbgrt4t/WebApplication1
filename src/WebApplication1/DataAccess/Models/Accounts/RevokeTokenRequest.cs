@@ -1,6 +1,6 @@
 ﻿namespace WebApplication1.DataAccess.Models.Accounts
 {
-    public class RevokeTokenRequest
+    public interface RevokeTokenRequest
     {
         public string Token { get; set; }
     }
