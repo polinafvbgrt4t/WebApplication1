@@ -9,6 +9,6 @@ namespace WebApplication1.DataAccess.Models.Accounts
         public string Email { get; set; }
 
         [Required]
-        public string Password { get; set; }
+        public string NameSurname { get; set; }
     }
 }
