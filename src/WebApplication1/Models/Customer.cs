@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using WebApplication1.Entities;
 
 namespace WebApplication1.Models
@@ -14,8 +15,11 @@ namespace WebApplication1.Models
         }
 
         public int CustomerId { get; set; }
+        [StringLength(100)]
         public string NameSurname { get; set; } = null!;
+       
         public string Email { get; set; }
+       
         public string AddressCustomer { get; set; } = null!;
         public bool  AcceptTerms { get; set; }
         public Role Role { get; set; }  

@@ -6,12 +6,11 @@ namespace WebApplication1.DataAccess.Models.Accounts
     {
 
         [Required]
-        public string Login { get; set; }
+        public int Id { get; set; }
 
     
 
-        [Required]
-        public string Middlename { get; set; }
+       
 
         [Required]
         [EmailAddress]
@@ -19,11 +18,11 @@ namespace WebApplication1.DataAccess.Models.Accounts
 
         [Required]
         [MinLength(6)]
-        public string Password { get; set; }
+        public string NameSurname { get; set; }
 
         [Required]
-        [Compare("Password")]
-        public string ConfirmPassword { get; set; }
+        [Compare("NameSurname")]
+        public string ConfirmNameSurname { get; set; }
 
         [Range(typeof(bool), "true", "true")]
         public bool AcceptTerms { get; set; }

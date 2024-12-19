@@ -43,7 +43,7 @@ namespace WebApplication1.Services
         }
         public async Task<AuthenticateResponse> Authenticate(AuthenticateRequest model, string ipAddress)
         {
-            var account = await _repositoryWrapper.Customers.Include(x => x.ResetToken).AsNoTracking().FirstOrDefaultAsync(x => x.Email == model.Email);
+            var account = await _repositoryWrapper.Customers.Include(x => x.RefreshTokens).AsNoTracking().FirstOrDefaultAsync(x => x.Email == model.Email);
 
             if (account == null || !account.IsVerified || !BCrypt.Net.BCrypt.Verify(model.NameSurname, account.NameSurname))
                 throw new AppException("Email or password is incorrect");
@@ -77,7 +77,7 @@ namespace WebApplication1.Services
             account.Created = DateTime.UtcNow;
             account.Verified = DateTime.UtcNow;
 
-            account.NameSurname = BCrypt.Net.BCrypt.HashPassword(model.Password);
+            account.NameSurname = BCrypt.Net.BCrypt.HashPassword(model.NameSurname);
 
             _repositoryWrapper.Customers.Update(account);
             await _repositoryWrapper.SaveChangesAsync();
@@ -206,21 +206,6 @@ namespace WebApplication1.Services
             return response;
         }
 
-        //private async Task<string> generateVerificationToken()
-        //{
-        //    var token = Convert.ToHexString(RandomNumberGenerator.GetBytes(64));
-
-        //    // Проверяем, существует ли токен в базе данных
-        //    var tokenIsUnique = !await _repositoryWrapper.Customers
-        //        .Where(x => x.Token == token)
-        //        .AnyAsync();
-
-        //    // Если токен не уникален, генерируем новый
-        //    if (tokenIsUnique)
-        //        return token;
-
-        //    return await generateVerificationToken(); // Повторная попытка
-        //}
 
         private async Task<string> generateVerificationToken()
         {
@@ -253,7 +238,7 @@ namespace WebApplication1.Services
             account.Created = DateTime.UtcNow;
             account.Verified = DateTime.UtcNow;
             account.VerificationToken = await generateVerificationToken();
-            account.PasswordHash = BCrypt.Net.BCrypt.HashPassword(model.Password); 
+            account.PasswordHash = BCrypt.Net.BCrypt.HashPassword(model.NameSurname); 
 
             
             await _repositoryWrapper.Customers.AddAsync(account);
@@ -275,7 +260,7 @@ namespace WebApplication1.Services
         public async Task ResetPassword(ResetPasswordRequest model)
         {
             var account = await getAccountByResetToken(model.Token);
-            account.PasswordHash = BCrypt.Net.BCrypt.HashPassword(model.Password);
+            account.PasswordHash = BCrypt.Net.BCrypt.HashPassword(model.NameSurname);
             account.PasswordReset = DateTime.UtcNow;
             account.ResetToken = null;
             account.ResetTokenExpires = null;
@@ -303,8 +288,8 @@ namespace WebApplication1.Services
             if (await _repositoryWrapper.Customers.Where(x => x.Email == model.Email).CountAsync() > 0)
                 throw new AppException($"Email '{model.Email} ' is already registered");
 
-            if (!string.IsNullOrEmpty(model.Password))
-                account.NameSurname = BCrypt.Net.BCrypt.HashPassword(model.Password);
+            if (!string.IsNullOrEmpty(model.NameSurname))
+                account.NameSurname = BCrypt.Net.BCrypt.HashPassword(model.NameSurname);
 
             _mapper.Map(model, account);
             account.Updated = DateTime.UtcNow;

@@ -5,8 +5,8 @@ namespace WebApplication1.DataAccess.Models.Accounts
 {
     public class UpdateRequest
     {
-        private string _password;
-        private string _confirmPassword;
+        private string _nameSurname;
+        private string _confirmNameSurname;
         private string _role;
         private string _email;
 
@@ -26,17 +26,17 @@ namespace WebApplication1.DataAccess.Models.Accounts
         }
 
         [MinLength(6)]
-        public string Password
+        public string NameSurname
         {
-            get => _password;
-            set => _password = replaceEmptyWithNull(value);
+            get => _nameSurname;
+            set => _nameSurname = replaceEmptyWithNull(value);
         }
 
-        [Compare("Password")]
-        public string ConfirmPassword
+        [Compare("NameSurname")]
+        public string ConfirmNameSurname
         {
-            get => _confirmPassword;
-            set => _confirmPassword = replaceEmptyWithNull(value);
+            get => _confirmNameSurname;
+            set => _confirmNameSurname = replaceEmptyWithNull(value);
         }
 
         // helpers

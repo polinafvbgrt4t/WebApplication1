@@ -9,10 +9,10 @@ namespace WebApplication1.DataAccess.Models.Accounts
 
         [Required]
         [MinLength(6)]
-        public string Password { get; set; }
+        public string NameSurname { get; set; }
 
         [Required]
-        [Compare("Password")]
-        public string ConfirmPassword { get; set; }
+        [Compare("NameSurname")]
+        public string ConfirmNameSurname { get; set; }
     }
 }
