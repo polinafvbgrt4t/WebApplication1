@@ -20,16 +20,17 @@ namespace WebApplication1.Services
         private readonly AppSettings _appSettings;
         private readonly IEmailService _emailService;
 
-        public AccountService(modelsContext repositoryWrapper, 
+        public AccountService(
+            modelsContext repositoryWrapper, 
             IJwtUtils jwtUtils,
             IMapper mapper,
-            AppSettings appSettings,
+            IOptions<AppSettings> appSettings,
             IEmailService emailService)
         {
             _repositoryWrapper = repositoryWrapper;
             _jwtUtils = jwtUtils;
             _mapper = mapper;
-            _appSettings = appSettings;
+            _appSettings = appSettings.Value;
             _emailService = emailService;
         }
 
