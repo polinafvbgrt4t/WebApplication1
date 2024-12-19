@@ -8,11 +8,6 @@ namespace WebApplication1.DataAccess.Models.Accounts
         [Required]
         public string Title { get; set; }
 
-        [Required]
-        public string FirstName { get; set; }
-
-        [Required]
-        public string LastName { get; set; }
 
         [Required]
         [EnumDataType(typeof(Role))]

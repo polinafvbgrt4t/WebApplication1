@@ -8,11 +8,7 @@ namespace WebApplication1.DataAccess.Models.Accounts
         [Required]
         public string Login { get; set; }
 
-        [Required]
-        public string Firstname { get; set; }
-
-        [Required]
-        public string Lastname { get; set; }
+    
 
         [Required]
         public string Middlename { get; set; }
