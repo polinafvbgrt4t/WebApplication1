@@ -140,10 +140,10 @@ namespace WebApplication1.Services
         }
         private async Task<RefreshToken> RotateRefreshToken(RefreshToken refreshToken, string ipAddress)
         {
-            // Генерируем новый refresh token
+            
             var newRefreshToken = await _jwtUtils.GenerateRefreshToken(ipAddress);
 
-            // Используем revokeRefreshToken с предыдущим refresh token
+           
              RevokeRefreshToken(refreshToken, ipAddress, "Replace by new token", newRefreshToken.Token);
 
             return newRefreshToken;
